@@ -1,0 +1,210 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import java.util.Calendar;
+
+/**
+ *
+ * @author Ramon
+ */
+public class Anamnese {
+    //Atributos
+    private Paciente paciente;   // Em vez de herdar, ela TEM um paciente
+    private Psicologo psicologo; // Em vez de herdar, ela TEM um psicologo
+    
+    // Getters e Setters dos Relacionamentos
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Psicologo getPsicologo() {
+        return psicologo;
+    }
+
+    public void setPsicologo(Psicologo psicologo) {
+        this.psicologo = psicologo;
+    }
+    
+    private int idAnamnese;
+    private String queixas;
+    private String sintomas;
+    private String tratamentos_anteriores;
+    private String medicamentos;
+    private String infancia;
+    private String rotina;
+    private String vicios;
+    private String hobbies;
+    private String trabalho;
+    private String historico_familiar;
+
+    private String comportamento;
+    private String linguagem;
+    private String humor;
+    private String hipotese_diagnostico;
+    private String observacoes;
+    private int numero_sessoes;
+    private float valor_sessao;
+    private String periodicidade;
+
+    public int getIdAnamnese() {
+        return idAnamnese;
+    }
+
+    public void setIdAnamnese(int idAnamnese) {
+        this.idAnamnese = idAnamnese;
+    }
+
+    public String getQueixas() {
+        return queixas;
+    }
+
+    public void setQueixas(String queixas) {
+        this.queixas = queixas;
+    }
+
+    public String getSintomas() {
+        return sintomas;
+    }
+
+    public void setSintomas(String sintomas) {
+        this.sintomas = sintomas;
+    }
+
+    public String getTratamentos_anteriores() {
+        return tratamentos_anteriores;
+    }
+
+    public void setTratamentos_anteriores(String tratamentos_anteriores) {
+        this.tratamentos_anteriores = tratamentos_anteriores;
+    }
+
+    public String getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(String medicamentos) {
+        this.medicamentos = medicamentos;
+    }
+
+    public String getInfancia() {
+        return infancia;
+    }
+
+    public void setInfancia(String infancia) {
+        this.infancia = infancia;
+    }
+
+    public String getRotina() {
+        return rotina;
+    }
+
+    public void setRotina(String rotina) {
+        this.rotina = rotina;
+    }
+
+    public String getVicios() {
+        return vicios;
+    }
+
+    public void setVicios(String vicios) {
+        this.vicios = vicios;
+    }
+
+    public String getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public String getTrabalho() {
+        return trabalho;
+    }
+
+    public void setTrabalho(String trabalho) {
+        this.trabalho = trabalho;
+    }
+
+    public String getHistorico_familiar() {
+        return historico_familiar;
+    }
+
+    public void setHistorico_familiar(String historico_familiar) {
+        this.historico_familiar = historico_familiar;
+    }
+
+    public String getComportamento() {
+        return comportamento;
+    }
+
+    public void setComportamento(String comportamento) {
+        this.comportamento = comportamento;
+    }
+
+    public String getLinguagem() {
+        return linguagem;
+    }
+
+    public void setLinguagem(String linguagem) {
+        this.linguagem = linguagem;
+    }
+
+    public String getHumor() {
+        return humor;
+    }
+
+    public void setHumor(String humor) {
+        this.humor = humor;
+    }
+
+    public String getHipotese_diagnostico() {
+        return hipotese_diagnostico;
+    }
+
+    public void setHipotese_diagnostico(String hipotese_diagnostico) {
+        this.hipotese_diagnostico = hipotese_diagnostico;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    public int getNumero_sessoes() {
+        return numero_sessoes;
+    }
+
+    public void setNumero_sessoes(int numero_sessoes) {
+        this.numero_sessoes = numero_sessoes;
+    }
+
+    public float getValor_sessao() {
+        return valor_sessao;
+    }
+
+    public void setValor_sessao(float valor_sessao) {
+        this.valor_sessao = valor_sessao;
+    }
+
+    public String getPeriodicidade() {
+        return periodicidade;
+    }
+
+    public void setPeriodicidade(String periodicidade) {
+        this.periodicidade = periodicidade;
+    }
+
+    
+    
+}
