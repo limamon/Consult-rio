@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
  */
 public class Sessao {
     //Atributos
-    private Anamnese anamnese; // A sessão pertence a uma anamnese
-    
-    public Anamnese getAnamnese() {
-        return anamnese;
+    private int idAnamnese; // A sessão pertence a uma anamnese (pelo ID)
+
+    public int getIdAnamnese() {
+        return idAnamnese;
     }
 
-    public void setAnamnese(Anamnese anamnese) {
-        this.anamnese = anamnese;
+    public void setIdAnamnese(int idAnamnese) {
+        this.idAnamnese = idAnamnese;
     }
     
     private int idSessao;

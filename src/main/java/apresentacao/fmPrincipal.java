@@ -72,6 +72,7 @@ public class fmPrincipal extends javax.swing.JFrame {
         btPaciente.setFocusable(false);
         btPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btPaciente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btPaciente.addActionListener(this::btPacienteActionPerformed);
         jToolBar1.add(btPaciente);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Exit-32.png"))); // NOI18N
@@ -127,6 +128,7 @@ public class fmPrincipal extends javax.swing.JFrame {
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setText("Anamnese");
+        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -198,6 +200,9 @@ public class fmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente); //adicionar o formulério em nos so containe
+        paciente.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -242,6 +247,20 @@ public class fmPrincipal extends javax.swing.JFrame {
         sobre.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void btPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacienteActionPerformed
+        // TODO add your handling code here:
+        fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente); //adicionar o formulério em nos so containe
+        paciente.setVisible(true);
+    }//GEN-LAST:event_btPacienteActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        fmAnamnese anamnese = new fmAnamnese();
+        jDesktopPane1.add(anamnese); //adicionar o formulério em nos so containe
+        anamnese.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

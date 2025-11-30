@@ -11,27 +11,28 @@ import java.util.Calendar;
  * @author Ramon
  */
 public class Anamnese {
-    //Atributos
-    private Paciente paciente;   // Em vez de herdar, ela TEM um paciente
-    private Psicologo psicologo; // Em vez de herdar, ela TEM um psicologo
+    //Atributos da outra classe
+    private int idPaciente;
+    private int idPsicologo;
+
+    // Getters e Setters dos IDs
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public int getIdPsicologo() {
+        return idPsicologo;
+    }
+
+    public void setIdPsicologo(int idPsicologo) {
+        this.idPsicologo = idPsicologo;
+    }
     
-    // Getters e Setters dos Relacionamentos
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public Psicologo getPsicologo() {
-        return psicologo;
-    }
-
-    public void setPsicologo(Psicologo psicologo) {
-        this.psicologo = psicologo;
-    }
-    
+    //Atributos dessa classe
     private int idAnamnese;
     private String queixas;
     private String sintomas;
@@ -205,6 +206,4 @@ public class Anamnese {
         this.periodicidade = periodicidade;
     }
 
-    
-    
 }
