@@ -89,6 +89,23 @@ public class fmAnamnese extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Cadastro Anamnese");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Cadastro de Anamnese");
@@ -141,18 +158,17 @@ public class fmAnamnese extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtQueixas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtTratamentosAnteriores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtQueixas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(txtTratamentosAnteriores))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -219,11 +235,11 @@ public class fmAnamnese extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHistoricoFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Rotina", jPanel1);
@@ -346,41 +362,47 @@ public class fmAnamnese extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Outros", jPanel4);
 
         btNovo.setText("Novo");
+        btNovo.addActionListener(this::btNovoActionPerformed);
 
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(this::btSalvarActionPerformed);
 
         btSair.setText("Sair");
+        btSair.addActionListener(this::btSairActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(70, 70, 70))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbPacientes, 0, 104, Short.MAX_VALUE)
-                            .addComponent(cbPsicologos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(btNovo)
-                .addGap(18, 18, 18)
-                .addComponent(btSalvar)
-                .addGap(18, 18, 18)
-                .addComponent(btSair)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbPacientes, 0, 104, Short.MAX_VALUE)
+                                    .addComponent(cbPsicologos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTabbedPane1))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(70, 70, 70))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btNovo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btSalvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btSair)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,11 +424,223 @@ public class fmAnamnese extends javax.swing.JInternalFrame {
                     .addComponent(btNovo)
                     .addComponent(btSalvar)
                     .addComponent(btSair))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+        try {
+            // --- 1. Carregar Pacientes no ComboBox ---
+            persistencia.IPacienteDAO dao = new persistencia.PacienteDAO();
+            java.util.List<negocio.Paciente> lista = dao.listarTodos();
+            
+            javax.swing.DefaultComboBoxModel modelo = new javax.swing.DefaultComboBoxModel();
+            
+            for (negocio.Paciente paciente : lista) {
+                // Adiciona "ID - Nome" na lista visual
+                modelo.addElement(paciente.getIdPaciente() + " - " + paciente.getNome());
+            }
+            cbPacientes.setModel(modelo);
+
+            
+            // --- 2. Carregar Psicólogos no ComboBox ---
+            // Nota: Verifique se você já criou a interface IPsicologoDAO. 
+            // Se não, use apenas 'PsicologoDAO dao2 = new PsicologoDAO();'
+            persistencia.IPsicologoDAO dao2 = new persistencia.PsicologoDAO();
+            java.util.List<negocio.Psicologo> lista2 = dao2.listarTodos();
+            
+            javax.swing.DefaultComboBoxModel modelo2 = new javax.swing.DefaultComboBoxModel();
+            
+            for (negocio.Psicologo psicologo : lista2) {
+                // Adiciona "ID - Nome" na lista visual
+                modelo2.addElement(psicologo.getIdPsicologo() + " - " + psicologo.getNome());
+            }
+            cbPsicologos.setModel(modelo2);
+            
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            javax.swing.JOptionPane.showMessageDialog(null, "Houve um erro ao carregar os dados: " + e.getMessage());
+        }
+        
+        habilitar(false); //Desabilitar os componentes
+        limpar(); //Limpar os componente
+        
+    }//GEN-LAST:event_formInternalFrameOpened
+    
+
+    public void habilitar(boolean valor) {
+        // 1. Comboboxes (Seleção de Paciente, Psicólogo e Periodicidade)
+        cbPacientes.setEnabled(valor);
+        cbPsicologos.setEnabled(valor);
+        cbPeriodicidade.setEnabled(valor);
+        
+        txtQueixas.setEnabled(valor);
+        txtSintomas.setEnabled(valor);
+        txtTratamentosAnteriores.setEnabled(valor);
+        txtMedicamentos.setEnabled(valor);
+        txtInfancia.setEnabled(valor);
+        
+        // 2. Campos de Texto (Strings)
+        txtRotina.setEnabled(valor);
+        txtVicios.setEnabled(valor);
+        txtHobbies.setEnabled(valor);
+        txtTrabalho.setEnabled(valor);
+        txtHistoricoFamiliar.setEnabled(valor);
+        txtComportamento.setEnabled(valor);
+        txtLinguagem.setEnabled(valor);
+        txtHumor.setEnabled(valor);
+        txtHipoteseDiagnostica.setEnabled(valor);
+        txtObservacoes.setEnabled(valor);
+
+        // 3. Campos Numéricos
+        txtNumeroSessoes.setEnabled(valor);
+        txtValorSessao.setEnabled(valor);
+
+        // 4. Botões de Ação
+        btSalvar.setEnabled(valor);
+        
+        // O botão Novo inverte a lógica (se estou editando, não posso criar novo)
+        // Certifique-se de ter um botão chamado btNovo na sua tela
+        if (btNovo != null) { 
+            btNovo.setEnabled(!valor);
+        }
+    }
+
+    public void limpar() {
+        // 1. Limpar Seleções dos Comboboxes
+        cbPacientes.setSelectedIndex(-1);
+        cbPsicologos.setSelectedIndex(-1);
+        cbPeriodicidade.setSelectedIndex(-1);
+        
+        txtQueixas.setText("");
+        txtSintomas.setText("");
+        txtTratamentosAnteriores.setText("");
+        txtMedicamentos.setText("");
+        txtInfancia.setText("");
+        
+        // 2. Limpar Campos de Texto
+        txtRotina.setText("");
+        txtVicios.setText("");
+        txtHobbies.setText("");
+        txtTrabalho.setText("");
+        txtHistoricoFamiliar.setText("");
+        txtComportamento.setText("");
+        txtLinguagem.setText("");
+        txtHumor.setText("");
+        txtHipoteseDiagnostica.setText("");
+        txtObservacoes.setText("");
+        txtValorSessao.setText("");
+
+        // 3. Limpar Campo de Número de Sessões
+        // SE FOR UM JTextField (Caixa de texto comum):
+        txtNumeroSessoes.setValue(0);
+        
+        // SE FOR UM JSpinner (Aquele com setinhas), USE ESTA LINHA ABAIXO NO LUGAR:
+        // txtNumeroSessoes.setValue(0);
+    }
+    
+    
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+                                                
+        int valor = javax.swing.JOptionPane.showConfirmDialog(null, "Tem certeza que deseja salvar a Anamnese?", "Sistema Consultório", 1);
+        
+        if (valor == 0) {
+            negocio.Anamnese anamnese = new negocio.Anamnese();
+            
+            try {
+                // 1. RECUPERANDO OS IDs DOS COMBOBOXES
+                if (cbPacientes.getSelectedIndex() != -1) {
+                    String itemPac = cbPacientes.getSelectedItem().toString();
+                    String[] partesPac = itemPac.split(" - ");
+                    anamnese.setIdPaciente(Integer.parseInt(partesPac[0])); 
+                }
+                
+                if (cbPsicologos.getSelectedIndex() != -1) {
+                    String itemPsi = cbPsicologos.getSelectedItem().toString();
+                    String[] partesPsi = itemPsi.split(" - ");
+                    anamnese.setIdPsicologo(Integer.parseInt(partesPsi[0]));
+                }
+                
+                // 2. CAMPOS DE TEXTO (INCLUINDO OS QUE FALTAVAM)
+                anamnese.setQueixas(txtQueixas.getText());
+                anamnese.setSintomas(txtSintomas.getText());
+                
+                // Atenção aos nomes dos métodos da sua classe (com underline)
+                anamnese.setTratamentos_anteriores(txtTratamentosAnteriores.getText());
+                
+                anamnese.setMedicamentos(txtMedicamentos.getText());
+                anamnese.setInfancia(txtInfancia.getText());
+
+                // 2. CAMPOS DE TEXTO
+                // Ajustei todos os nomes abaixo para ficarem iguais à sua classe Anamnese
+                anamnese.setRotina(txtRotina.getText());
+                anamnese.setVicios(txtVicios.getText());
+                anamnese.setHobbies(txtHobbies.getText());
+                anamnese.setTrabalho(txtTrabalho.getText());
+                
+                // Atenção aos underlines (_) que você usou na classe:
+                anamnese.setHistorico_familiar(txtHistoricoFamiliar.getText());
+                
+                anamnese.setComportamento(txtComportamento.getText());
+                anamnese.setLinguagem(txtLinguagem.getText());
+                anamnese.setHumor(txtHumor.getText());
+                
+                anamnese.setHipotese_diagnostico(txtHipoteseDiagnostica.getText());
+                anamnese.setPeriodicidade(cbPeriodicidade.getSelectedItem().toString());
+                anamnese.setObservacoes(txtObservacoes.getText());
+
+                // 3. CAMPOS NUMÉRICOS
+                
+                // NÚMERO DE SESSÕES
+                // Se for JSpinner:
+                // anamnese.setNumero_sessoes((Integer) txtNumeroSessoes.getValue());
+                
+                // Se for JTextField (Caixa de Texto comum):
+                int qtdSessoes = (Integer) txtNumeroSessoes.getValue();
+                anamnese.setNumero_sessoes(qtdSessoes);
+                
+                // VALOR DA SESSÃO (FLOAT)
+                // Sua classe pede Float, então usamos Float.parseFloat
+                String valorStr = txtValorSessao.getText().replace(",", ".");
+                if (!valorStr.isEmpty()) {
+                    anamnese.setValor_sessao(Float.parseFloat(valorStr));
+                }
+
+                // 4. GRAVANDO NO BANCO
+                persistencia.IAnamneseDAO dao = new persistencia.AnamneseDAO();
+                dao.adicionar(anamnese);
+                
+                javax.swing.JOptionPane.showMessageDialog(null, "Anamnese salva com sucesso!");
+                
+                limpar(); // Certifique-se de ter criado este método limpar() na tela de Anamnese
+                // habilitar(false); // Se tiver esse método
+
+            } catch (NumberFormatException e) {
+                javax.swing.JOptionPane.showMessageDialog(null, "Erro nos números: Verifique Valor ou Nº Sessões.\n" + e.getMessage());
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(null, "Erro ao salvar: " + e.getMessage());
+            }
+        }
+        
+        habilitar(false); //Desabilitar os componentes
+        limpar(); //Limpar os componente
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        // TODO add your handling code here:
+        
+        habilitar(true); //Habilitar componentes
+        limpar(); //Preparamos os componentes para insergéo de dados
+    }//GEN-LAST:event_btNovoActionPerformed
+
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btSairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

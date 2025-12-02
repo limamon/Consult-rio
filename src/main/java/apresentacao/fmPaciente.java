@@ -151,10 +151,11 @@ public class fmPaciente extends javax.swing.JInternalFrame {
         txtCPF.addActionListener(this::txtCPFActionPerformed);
 
         try {
-            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(" ## /##/####    ")));
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(" ##/##/####    ")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtData.addActionListener(this::txtDataActionPerformed);
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
@@ -396,10 +397,10 @@ public class fmPaciente extends javax.swing.JInternalFrame {
             try {
                 SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(data.parse(txtData.getText()));
+                cal.setTime(data.parse(txtData.getText().replace(" ","")));
                 paciente.setData_nascimento(cal);
             } catch (ParseException e) {
-                    System.out.println(e);
+                    System.out.println("Erro na data: " + e);
             }
             if (rbMasculino.isSelected()) {
                 paciente.setSexo("M");
@@ -411,8 +412,8 @@ public class fmPaciente extends javax.swing.JInternalFrame {
             paciente.setPlano_saude(cbPlanoSaude.getSelectedItem().toString());
             
             //movemos a foto para um especifico
-            String novoNomeFoto = txtNome.getName().replaceAll(" ","") + txtNome.getText().hashCode()+".png";
-            File urlFoto = new File("D:/fotos/" + novoNomeFoto);
+            String novoNomeFoto = txtNome.getText().replaceAll(" ","") + txtNome.getText().hashCode()+".png";
+            File urlFoto = new File("C:/fotos/" + novoNomeFoto);
             try {
                 copiarArquivo(arquivoFoto, urlFoto); //criar depois
             } catch (IOException ex){
@@ -429,6 +430,10 @@ public class fmPaciente extends javax.swing.JInternalFrame {
             habilitar(false);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

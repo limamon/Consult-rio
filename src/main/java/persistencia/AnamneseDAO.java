@@ -70,7 +70,43 @@ public class AnamneseDAO implements IAnamneseDAO {
     @Override
     public void remover(int id) { throw new UnsupportedOperationException("Not supported yet."); }
     @Override
-    public List<Anamnese> listarTodos() { throw new UnsupportedOperationException("Not supported yet."); }
+    public List<Anamnese> listarTodos() { 
+    java.util.List<negocio.Anamnese> lista = new java.util.ArrayList<>();
+        
+        // Verifique se o nome da tabela no seu banco é "anamnese" mesmo
+        String sql = "SELECT * FROM anamnese"; 
+
+        try {
+            java.sql.PreparedStatement stmt = connection.prepareStatement(sql);
+            java.sql.ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                negocio.Anamnese a = new negocio.Anamnese();
+                
+                // --- Preenchendo os dados essenciais ---
+                // Verifica se no banco a coluna chama "idanamnese" ou "id_anamnese"
+                // Se der erro de coluna não encontrada, verifique no Workbench
+                a.setIdAnamnese(rs.getInt("idanamnese")); 
+                a.setIdPaciente(rs.getInt("idpaciente"));
+                a.setIdPsicologo(rs.getInt("idpsicologo"));
+                
+                // --- Outros campos (opcional carregar tudo agora) ---
+                a.setQueixas(rs.getString("queixas"));
+                a.setObservacoes(rs.getString("observacoes"));
+                // Se precisar de mais campos na lista, adicione aqui (setRotina, setVicios, etc.)
+
+                lista.add(a);
+            }
+            
+            rs.close();
+            stmt.close();
+            
+            return lista;
+            
+        } catch (java.sql.SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @Override
     public Anamnese getById(int id) { throw new UnsupportedOperationException("Not supported yet."); }
     

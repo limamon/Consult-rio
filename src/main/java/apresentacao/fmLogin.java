@@ -44,6 +44,8 @@ public class fmLogin extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Insidera seus dados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel1.setMaximumSize(new java.awt.Dimension(270, 131));
+        jPanel1.setMinimumSize(new java.awt.Dimension(270, 131));
 
         jLabel2.setText("Usuário:");
 
@@ -60,22 +62,21 @@ public class fmLogin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)))
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCancelar))
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(txtUsuario))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,10 +129,44 @@ public class fmLogin extends javax.swing.JFrame {
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
+        
+        // 1. Pegar os dados que o usuário digitou na tela
+        String usuarioDigitado = txtUsuario.getText();
+        
+        // Se o campo for um JPasswordField, o ideal é usar getPassword()
+        // Mas se for um TextField comum, pode manter getText()
+        String senhaDigitada = txtSenha.getText(); 
+        
+        // 2. Instanciar o DAO para conectar ao banco
+        persistencia.PsicologoDAO dao = new persistencia.PsicologoDAO();
+        
+        // 3. Verificar no Banco de Dados
+        // O método checkLogin vai retornar TRUE se achar o usuário, ou FALSE se não achar
+        if (dao.autenticar(usuarioDigitado, senhaDigitada)) {
+            
+            // --- SUCESSO: Login Correto ---
+            fmPrincipal principal = new fmPrincipal();
+            principal.setVisible(true);
+            
+            // Maximiza a tela principal
+            principal.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+            
+            // Fecha a tela de Login
+            this.dispose();
+            
+        } else {
+            // --- ERRO: Login ou Senha errados ---
+            javax.swing.JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreta!");
+        }
+        
+        
+        
+        /*
         // Usuario e senha padrão
         String usuarioDefault = "admin";
         String senhaDefault = "admin";
@@ -149,6 +184,7 @@ public class fmLogin extends javax.swing.JFrame {
         }
         else
             JOptionPane.showMessageDialog(null, "Usuario ou Senha incorreta");
+        */
     }//GEN-LAST:event_btLoginActionPerformed
 
     /**

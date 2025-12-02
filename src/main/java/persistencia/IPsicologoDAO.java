@@ -17,4 +17,7 @@ public interface IPsicologoDAO {
     public void alterar(Psicologo psicologo);
     public List<Psicologo> listarTodos();
     public Psicologo getById(int id);
+    
+    // NOVO: Método de contrato para o login
+    public boolean autenticar(String login, String senha);
 }
