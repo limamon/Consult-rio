@@ -56,6 +56,7 @@ public class fmPrincipal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -166,6 +167,11 @@ public class fmPrincipal extends javax.swing.JFrame {
         jMenuItem6.setText("Histórico Clínico");
         jMenuItem6.addActionListener(this::jMenuItem6ActionPerformed);
         jMenu4.add(jMenuItem6);
+
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem9.setText("Lista de Pacientes");
+        jMenuItem9.addActionListener(this::jMenuItem9ActionPerformed);
+        jMenu4.add(jMenuItem9);
 
         jMenuBar1.add(jMenu4);
 
@@ -293,6 +299,18 @@ public class fmPrincipal extends javax.swing.JFrame {
         sessao.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        
+        fmListaDePacientes listaPaciente = new fmListaDePacientes();
+        
+        // Adiciona ela dentro da área de trabalho (DesktopPane) da tela principal
+        jDesktopPane1.add(listaPaciente);
+        
+        // Faz a janela aparecer
+        listaPaciente.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,6 +354,7 @@ public class fmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel laData;
