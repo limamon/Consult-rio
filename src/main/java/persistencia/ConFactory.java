@@ -17,7 +17,7 @@ public class ConFactory {
         try {
             // Ajustei o nome do banco para DBConsultorio (que criamos no script)
             // Se o seu MySQL tiver senha, coloque entre as aspas do último parâmetro
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/DBConsultorio", "root", "rbl2526");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/DBConsultorio", "root", "Senha");
             
         } catch (SQLException excecao) {
             // Lança um erro de tempo de execução se falhar
